@@ -1,0 +1,7 @@
+.hover-image-container {
+  display: none; /* 默认不显示 */
+}
+ 
+.hover-trigger:hover + .hover-image-container {
+  display: block; /* 鼠标悬停时显示 */
+}

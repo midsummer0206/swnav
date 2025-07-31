@@ -26,7 +26,6 @@
     <link rel='stylesheet' id='bootstrap-css' href='css/bootstrap.min-3.03029.1.css' type='text/css' media='all'>
     <link rel='stylesheet' id='lightbox-css' href='css/jquery.fancybox.min-3.03029.1.css' type='text/css' media='all'>
     <link rel='stylesheet' id='style-css' href='css/style-3.03029.1.css' type='text/css' media='all'>
-    <link rel='stylesheet' id='style-css' href='css/image.css' type='text/css' media='all'>
     <script type='text/javascript' src='js/jquery.min-3.03029.1.js' id='jquery-js'></script>
     <script type='text/javascript' src='js/es6-promise.auto.js'>//ie支持弹窗</script>
     <link rel="stylesheet" href="css/sweetalert2.min.css">
@@ -172,7 +171,7 @@
                 }
             }
         </style>
-        <div class="loader">设备物资办公网址导航</div>
+        <div class="loader">设备物资建筑公司设备物资办公网址导航</div>
     </div> --> 
     <!--初始加载动画end-->
     <!--新年快乐灯笼-->
@@ -237,7 +236,32 @@
                                         </svg>
                                     </label>
                                 </div>
-                                <span>&nbsp;&nbsp;建筑公司设备物资办公网址导航</span>
+                               <!-- <span>&nbsp;&nbsp;建筑公司设备物资办公网址导航</span>-->
+
+                               <span> 
+                              <div id="countdown"></div>
+                               <script>
+                                      // 目标日期
+                                      var targetDate = new Date("2025-07-01T00:00:00");
+                                      // 更新倒计时
+                                      function updateCountdown() {
+                                        var now = new Date();
+                                        var timeLeft = targetDate - now;
+                                        // 计算剩余的天、小时、分钟和秒
+                                        var days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+                                        var hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                                        var minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+                                        var seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+                                        // 更新页面上的倒计时显示
+                                        document.getElementById("countdown").innerHTML ="&nbsp;&nbsp;距离630保交楼结束还有：" + days + "天" + hours + "小时" + minutes + "分钟" + seconds + "秒";
+                                        // 每秒钟更新一次倒计时
+                                        setTimeout(updateCountdown, 1000);
+                                      }
+                                      // 启动倒计时
+                                      updateCountdown();
+                                    </script>
+                               </span>
+
                                 <!-- 天气 -->
                                   <!--<div class="rounded-circle weather">
                                     <div id="he-plugin-simple" style="display: contents;"></div>
@@ -336,21 +360,86 @@
             </div>
             <div class="header-big  post-top css-color mb-4"
                 style="background-image: linear-gradient(45deg, #004098 0%, #62046e 50%, #e70012 100%);">
+                <div class="s-search">
+                    <div id="search" class="s-search mx-auto">
+                        <div id="search-list-menu" class="hide-type-list">
                             <div class="s-type text-center">
                                 <div class="s-type-list big">
-                                    <div style=" font-size: 36px;"><span class="hover-trigger">努力不一定会被看到，</span>
-                                        <div class="hover-image-container">
-                                            <!--<img src="ico/myc.png" class="hidden-image" alt="价值观">-->
-                                            <div style=" font-size: 36px;"><span class="hidden-image">但摸鱼一定会！</span></div>
-                                        </div>
-                                    </div>
-
+                                    <div class="anchor" style="position: absolute; left: 50%; opacity: 0;"></div><label for="type-baidu" class="" data-id="group-a"><span>常用</span></label>
+                                    <label for="type-baidu1" data-id="group-b"><span>搜索</span></label>
+                                    <label for="type-taobao1" data-id="group-c"><span>生活</span></label>
                                 </div>
                             </div>
+                        </div>
+                        <form action="#" method="get" target="_blank" class="super-search-fm">
+                            <input type="text" id="search-text" class="form-control smart-tips search-key" zhannei=""
+                                placeholder="输入关键字搜索" style="outline:0" autocomplete="off">
+                            <button type="submit"><i class="iconfont icon-search"></i></button>
+                        </form>
+                        <div id="search-list" class="hide-type-list">
+                            <div class="search-group group-a ">
+                                <ul class="search-type">
+                                    <li><input checked="checked" hidden="" type="radio" name="type" id="type-baidu"
+                                            value="https://www.baidu.com/s?wd=" data-placeholder="百度一下"><label
+                                            for="type-baidu"><span class="text-muted">百度</span></label></li>
+                                    <li><input hidden="" type="radio" name="type" id="type-taobao"
+                                            value="https://s.taobao.com/search?q=" data-placeholder="淘宝"><label
+                                            for="type-taobao"><span class="text-muted">淘宝</span></label></li>
+                                    <li><input hidden="" type="radio" name="type" id="type-kd100"
+                                            value="https://www.kuaidi100.com/?" data-placeholder="查快递"><label
+                                            for="type-kd100"><span class="text-muted">快递100</span></label></li>
+                                </ul>
+                            </div>
+                            <div class="search-group group-b ">
+                                <ul class="search-type">
+                                    <li><input hidden="" type="radio" name="type" id="type-baidu1"
+                                            value="https://www.baidu.com/s?wd=" data-placeholder="百度一下"><label
+                                            for="type-baidu1"><span class="text-muted">百度</span></label></li>
+                                    <li><input hidden="" type="radio" name="type" id="type-360"
+                                            value="https://www.so.com/s?q=" data-placeholder="360好搜"><label
+                                            for="type-360"><span class="text-muted">360</span></label></li>
+                                    <li><input hidden="" type="radio" name="type" id="type-sogo"
+                                            value="https://www.sogou.com/web?query=" data-placeholder="搜狗搜索"><label
+                                            for="type-sogo"><span class="text-muted">搜狗</span></label></li>
+                                    <li><input hidden="" type="radio" name="type" id="type-bing1"
+                                            value="https://cn.bing.com/search?q=" data-placeholder="微软Bing搜索"><label
+                                            for="type-bing1"><span class="text-muted">必应</span></label></li>
+                                </ul>
+                            </div>
+                            
+                            <div class="search-group group-c ">
+                                <ul class="search-type">
+                                    <li><input hidden="" type="radio" name="type" id="type-taobao1"
+                                            value="https://s.taobao.com/search?q=" data-placeholder="淘宝"><label
+                                            for="type-taobao1"><span class="text-muted">淘宝</span></label></li>
+                                    <li><input hidden="" type="radio" name="type" id="type-jd"
+                                            value="https://search.jd.com/Search?keyword=" data-placeholder="京东"><label
+                                            for="type-jd"><span class="text-muted">京东</span></label></li>
+                                    <li><input hidden="" type="radio" name="type" id="type-12306"
+                                            value="https://www.12306.cn/?" data-placeholder="12306"><label
+                                            for="type-12306"><span class="text-muted">12306</span></label></li>
+                                    <li><input hidden="" type="radio" name="type" id="type-kd100"
+                                            value="https://www.kuaidi100.com/?" data-placeholder="查快递"><label
+                                            for="type-kd100"><span class="text-muted">快递100</span></label></li>
+                                    <li><input hidden="" type="radio" name="type" id="type-qunar"
+                                            value="https://www.qunar.com/?" data-placeholder="去哪儿"><label
+                                            for="type-qunar"><span class="text-muted">去哪儿</span></label></li>
+                                </ul>
+                            </div>
+                            
+                        </div>
+                        <div class="card search-smart-tips" style="display: none">
+                            <ul></ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="bulletin-big mx-3 mx-md-0">
+                    
+                </div>
             </div>
-            
-            
             <div id="content" class="content-site customize-site">
+
+
                 
                 <div class="d-flex flex-fill ">
                     <h4 class="text-gray text-lg mb-4">
@@ -872,7 +961,7 @@
                                             <div class="text-sm overflowClip_1">
                                                 <strong>建筑公司集中采购台账</strong>
                                             </div>
-                                            <p class="overflowClip_1 m-0 text-muted text-xs">停止使用</p>
+                                            <p class="overflowClip_1 m-0 text-muted text-xs">日常填报</p>
                                         </div>
                                     </div>
                                 </div>
@@ -896,7 +985,7 @@
                                             <div class="text-sm overflowClip_1">
                                                 <strong>国资委监管采购及合同信息台账</strong>
                                             </div>
-                                            <p class="overflowClip_1 m-0 text-muted text-xs">停止使用</p>
+                                            <p class="overflowClip_1 m-0 text-muted text-xs">每月填报</p>
                                         </div>
                                     </div>
                                 </div>
@@ -1922,7 +2011,7 @@ var theme = {"ajaxurl":"#","addico":"#","order":"asc","formpostion":"top","defau
         id='lightbox-js-js'></script>
     <script type='text/javascript' src='js/app-3.03029.1.js' id='appjs-js'></script>
 <!--网页线条-->
-    <!--<script type='text/javascript' src='js/canvas-nest.min.js' color='0,0,0' zIndex='-1' opacity='1' count='99'></script>-->
+    <script type='text/javascript' src='js/canvas-nest.min.js' color='0,0,0' zIndex='-1' opacity='1' count='99'></script>
 <!--网页线条end-->
     <script type="text/javascript">
     $(document).ready(function(){
@@ -1987,7 +2076,7 @@ var theme = {"ajaxurl":"#","addico":"#","order":"asc","formpostion":"top","defau
 <!--五颜六色心特效end-->
 
 <!-- 网页鼠标点击特效 - 核心价值观关键字 -->
-<script>
+<!-- <script>
     (function () {
         var a_idx = 0;
         window.onclick = function (event) {
@@ -2028,7 +2117,7 @@ var theme = {"ajaxurl":"#","addico":"#","order":"asc","formpostion":"top","defau
                 .random() * 255)) + ")";
         }
     }());
-</script>
+</script>-->
  <!-- 网页鼠标点击特效end -->
 
 <script>
@@ -2090,37 +2179,23 @@ var theme = {"ajaxurl":"#","addico":"#","order":"asc","formpostion":"top","defau
 
 <!--弹窗-->
 <!--<script type="text/javascript">
-   swal.fire({
+    swal.fire({
         icon: 'info',
-        title: '网站征集',
-        text: '现向大家征集本导航以外的质量更好的相关网站信息，请有资源的同事将相关信息发送到邮箱：779858051@qq.com',
-        //footer: '<a href="https://swnav.midsum.com/">点击访问新网址</a>',
+        title: '注意',
+        text: '本网址将于2024年5月31日停止访问',
+        footer: '<a href="https://swnav.midsum.com/">点击访问新网址</a>',
         //imageUrl: 'ico/zq.png',
         //imageWidth: 400,
         //imageHeight: 200,
         //imageAlt: 'Custom image',
         //background: '#fff',
-        //showConfirmButton: false,
+        showConfirmButton: false,
         //timer: 3000,
         //timerProgressBar: true,
      //didOpen: (toast) => {
        //  toast.addEventListener('mouseenter', Swal.stopTimer)
        //  toast.addEventListener('mouseleave', Swal.resumeTimer)
-     //} 
-       showClass: {
-    popup: `
-      animate__animated
-      animate__fadeInUp
-      animate__faster
-    `
-  },
-  hideClass: {
-    popup: `
-      animate__animated
-      animate__fadeOutDown
-      animate__faster
-    `
-  }      
+     //}        
     });
 </script>-->
 <!--弹窗end-->
